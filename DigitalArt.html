@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal page</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/75108f8044.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,133&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar__container">
+            <a href="/" id="navbar__logo">
+                <i class="fas fa-heart"></i>Sylchu
+            </a>
+            <div class="navbar__toggle" id="mobile-menu" aria-expanded="false" aria-controls="navbar__menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <ul class="navbar__menu" id="navbar__menu">
+            <li class="navbar__item">
+                <a href="/" class="navbar__links">Home</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/digitalart.html" class="navbar__links">DigitalArt</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/" class="navbar__links">Animations</a>
+            </li>
+            <li class="navbar__item">
+                <a href="/" class="buttons">Art Gallery</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main2">
+        <div class="main__container2">
+            <div class="main__content">
+                <h1>Here is some of My digital art!</h1>
+                <p>Check out my Wix if you want to see more of my work</p>
+                <button class="main__btn">
+                    <a href="https://shayorita12345.wixsite.com/sylv-eevee">Wix Page</a>
+                </button>
+            </div>
+      <div class="main__img--container2" id="image-container">
+                <img src="/images/Amazing_Story_-_Andy_Giang.jpg" alt="Amazing Story">
+                <img src="/images/Typographic_Portrait_Summative_-_Andy_Giang_V2.png" alt="Typographic Portrait">
+                <img src="/images/Text_Illustration_-_Andy_Giang.jpg" alt="Text Illustration">
+            </div>
+    </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer__container">
+        <div class="footer__links">
+            <div class="footer__links--wrapper">
+                <div class="footer__links--items">
+                    <h2>About me</h2>
+                    <a href="/">Career</a>
+                </div>
+                <div class="footer__links--items">
+                    <h2>More</h2>
+                    <a href="https://www.instagram.com/_sylchu_?igsh=MTk3d3M4ZWFsZTI3aQ==" target="_blank">Contacts</a>
+                </div>
+            </div>
+        </div>
+        <div class="social__media">
+            <div class="social__media--wrap">
+                <div class="footer__logo">
+                    <a href="/" id="footer__logo"><i class="fas fa-gem"></i>Sylchu</a>
+                </div>
+                <p class="website__rights">© Sylchu 2024. All rights reserved</p>
+                <div class="social__icons">
+                    <a href="https://www.instagram.com/_sylchu_?igsh=MTk3d3M4ZWFsZTI3aQ==" class="social__icons--links" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('image-container').addEventListener('click', function (event) {
+            if (event.target.tagName === 'IMG') {
+                const imageUrl = event.target.src;
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed';
+                modal.style.top = '0';
+                modal.style.left = '0';
+                modal.style.width = '100vw';
+                modal.style.height = '100vh';
+                modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                modal.style.display = 'flex';
+                modal.style.justifyContent = 'center';
+                modal.style.alignItems = 'center';
+                modal.style.zIndex = '1000';
+                modal.style.transition = "opacity 0.3s ease-in-out";
+modal.style.opacity = "0";
+setTimeout(() => modal.style.opacity = "1", 0);
+
+                const fullImage = document.createElement('img');
+                fullImage.src = imageUrl;
+                fullImage.style.maxWidth = '90%';
+                fullImage.style.maxHeight = '90%';
+                fullImage.style.borderRadius = '10px';
+                fullImage.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.5)';
+
+                modal.addEventListener('click', function () {
+                    modal.remove();
+                });
+
+                modal.appendChild(fullImage);
+                document.body.appendChild(modal);
+            }
+            const menuToggle = document.querySelector('.navbar__menu');
+const navbarLinks = document.querySelector('.navbar__links');
+
+menuToggle.addEventListener('click', () => {
+    navbarLinks.classList.toggle('active');
+});
+        });
+    </script>
+</body>
+</html>
